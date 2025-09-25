@@ -96,7 +96,28 @@ Both scripts generate timestamped output files in the project directory:
 
 - `jira_tickets_YYYY-MM-DD.txt`: Contains formatted Jira ticket summaries
 - `github_contributions_YYYY-MM-DD.txt`: Contains formatted GitHub PR summaries
-- `prompt-YYYY-MM-DD.txt`: Combined output suitable for LLM prompts (if generated)
+
+## Example Usage in LLM: The Career Coach
+```
+You are an expert career coach. I am preparing my self-evaluation and need your
+assistance. I will provide two consolidated text files below containing the github pull
+requests and jira cards I completed this year.
+
+Your task is to analyze this raw data and generate professional summaries
+of my key accomplishments as they relate to the questions I ask. Cite examples. Additionally frame
+responses to illustrate these key behaviors: Teamwork, Trust, Transparency, Customer Obsession, Clarity
+Courage, Growth Mindset, Respect.
+
+Here is the github data: 
+
+<github.py output>
+
+Here's the jira data:
+<jira.py output>
+
+...
+```
+```Summarize my contributions to the Foo project in the 2nd quarter```
 
 ## Troubleshooting
 
