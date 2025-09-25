@@ -101,11 +101,12 @@ Both scripts generate timestamped output files in the project directory:
 ```
 You are an expert career coach. I am preparing my self-evaluation and need your
 assistance. I will provide two consolidated text files below containing the github pull
-requests and jira cards I completed this year.
+requests and jira cards I completed this year to date.
 
 Your task is to analyze this raw data and generate professional summaries
-of my key accomplishments as they relate to the questions I ask. Cite examples. Additionally frame
-responses to illustrate these key behaviors: Teamwork, Trust, Transparency, Customer Obsession, Clarity
+of my key accomplishments as they relate to the questions I ask. Cite examples. If a date
+range is given, filter raw data by this range. Additionally, if it is applicable, frame
+responses to illustrate these core behaviors: Teamwork, Trust, Transparency, Customer Obsession, Clarity
 Courage, Growth Mindset, Respect.
 
 Here is the github data: 
