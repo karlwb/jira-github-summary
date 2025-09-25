@@ -117,7 +117,13 @@ Here's the jira data:
 
 ...
 ```
+
 ```Summarize my contributions to the Foo project in the 2nd quarter```
+
+```In 4k or fewer chars, summarize my contributions to projects that weren't Foo or Bar, year to date. Order by implied business impact```
+
+```Summarize the 3 main themes around my work in the 3rd quarter```
+
 
 ## Troubleshooting
 
