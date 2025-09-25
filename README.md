@@ -124,6 +124,8 @@ Here's the jira data:
 
 ```Summarize the 3 main themes around my work in the 3rd quarter```
 
+```Why am I wasting my life doing this?```
+
 
 ## Troubleshooting
 
