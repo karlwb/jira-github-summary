@@ -19,6 +19,7 @@ class Config:
     """A dataclass to hold and validate config from environment variables."""
     github_token: str
     github_username: str
+    github_org_filter: str
 
     @classmethod
     def from_env(cls) -> "Config":
@@ -27,6 +28,7 @@ class Config:
         required_vars = {
             "github_token": os.getenv("GITHUB_TOKEN"),
             "github_username": os.getenv("GITHUB_USERNAME"),
+            "github_org_filter": os.getenv("GITHUB_ORG_FILTER"),
         }
 
         missing = [key for key, value in required_vars.items() if not value]
@@ -91,19 +93,20 @@ class GitHubService:
         return all_prs
 
 
-def format_prs_for_llm(prs: List[Dict[str, Any]]) -> str:
+def format_prs_for_llm(prs: List[Dict[str, Any]], config: Config) -> str:
     """Format the fetched GitHub PRs into a single string for the LLM."""
     if not prs:
         print("No merged PRs found for the year.")
         return ""
 
     consolidated_data = []
+    i = 1
     for pr in sorted(prs, key=lambda x: x["closed_at"], reverse=True):
-        # if it 's not for a centurylink (case-insensitive) repo, skip it
+        # Filter by configured GitHub organization
         repo_name = pr["repository_url"].split("/")[-2] + "/" + pr["repository_url"].split("/")[-1]
-        if "centurylink" not in repo_name.lower():
+        if config.github_org_filter.lower() not in repo_name.lower():
             continue
-        i=1
+        
         entry = [
             f"--- github {i} ---",
             f"Repo: {repo_name}",
@@ -122,12 +125,12 @@ def format_prs_for_llm(prs: List[Dict[str, Any]]) -> str:
 def main() -> int:
     """Run the main script logic."""
     try:
-        # NOTE: Your .env file should now have GITHUB_TOKEN and GITHUB_USERNAME
+        # NOTE: Your .env file should now have GITHUB_TOKEN, GITHUB_USERNAME, and GITHUB_ORG_FILTER
         config = Config.from_env()
         github_service = GitHubService(config)
 
         all_prs = github_service.fetch_merged_prs_for_year()
-        github_output = format_prs_for_llm(all_prs)
+        github_output = format_prs_for_llm(all_prs, config)
 
         if github_output:
             current_date = datetime.now().strftime('%Y-%m-%d')

@@ -53,6 +53,7 @@ A collection of Python scripts to fetch and format data from Jira and GitHub for
 
    - `GITHUB_TOKEN`: Your GitHub Personal Access Token (create one in GitHub Settings > Developer settings > Personal access tokens)
    - `GITHUB_USERNAME`: Your GitHub username
+   - `GITHUB_ORG_FILTER`: Organization name to filter PRs (only PRs from repositories containing this organization name will be included)
 
 ## Usage
 
