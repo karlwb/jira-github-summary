@@ -124,7 +124,13 @@ Here's the jira data:
 
 ```Summarize the 3 main themes around my work in the 3rd quarter```
 
-```Why am I wasting my life doing this?```
+```How much of the work I'm assigned isn't a part of my goals?```
+
+```When did I start working on Foo?```
+
+```Here's this vague almost incomprehensible goal I have. Make sense of it and write something high impact in 4k chars or less. <paste goal text>```
+
+
 
 
 ## Troubleshooting
