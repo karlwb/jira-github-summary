@@ -21,12 +21,12 @@ A collection of Python scripts to fetch and format data from Jira and GitHub for
 
 2. **Install Poetry** (if not already installed):
 
-   # *nix
+   On *nix:
    ```bash
    curl -sSL https://install.python-poetry.org | python3 -
    ```
 
-   # windows
+   On windows:
    ```powershell
    (Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicParsing).Content | py -
    ```
